@@ -27,9 +27,9 @@ if (isset($_POST['limpiar'])) {
       $fhex= hexdec($f);
       if($fhex !== 0){
         return $fhex;
-      }elseif ($f !== '') {
+      }elseif (!empty($f)) {
          echo '<script type="text/javascript">
-                  alert("'.strtoupper($f).' No es un numero Hexadecimal");
+                  alert("'.strtoupper($f).' No es un número Hexadecimal");
                   window.location.href="index.php"
                 </script>';
       }else{
@@ -74,27 +74,28 @@ if (isset($_POST['limpiar'])) {
       return $r;
     }
   }
-function hexacalcu($r, $a){
-  if ($r>9 && $r<16) {
-    $h=dechex($r);
-    if ($a == 0) {
-      $a="";
+
+  function hexacalcu($r, $a){
+    if ($r>9 && $r<16) {
+      $h=dechex($r);
+      if ($a == 0) {
+        $a="";
+      }
+      return $r=$a.$h;
+    }elseif ($r == 16) {
+      $r=0;
+      return$r=$r+($a*10);
+    }elseif ($a>9 && $a<16) {
+      $a2=dechex($a);
+      return $r=$a2.$r;
+    }elseif (($r>9 && $r<16)&&($a>9 && $a<16)) {
+      $h=dechex($r);
+      $a2=dechex($a);
+      return $r=$a2.$h;
+    }else{
+     return $r=$r+($a*10);
     }
-    return $r=$a.$h;
-  }elseif ($r == 16) {
-    $r=0;
-    return$r=$r+($a*10);
-  }elseif ($a>9 && $a<16) {
-    $a2=dechex($a);
-    return $r=$a2.$r;
-  }elseif (($r>9 && $r<16)&&($a>9 && $a<16)) {
-    $h=dechex($r);
-    $a2=dechex($a);
-    return $r=$a2.$h;
-  }else{
-   return $r=$r+($a*10);
   }
-}
 
 
  ?>
