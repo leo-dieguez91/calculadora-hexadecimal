@@ -83,8 +83,7 @@ if (isset($_POST['limpiar'])) {
       }
       return $r=$a.$h;
     }elseif ($r == 16) {
-      $r=0;
-      return$r=$r+($a*10);
+      return$r=10;
     }elseif ($a>9 && $a<16) {
       $a2=dechex($a);
       return $r=$a2.$r;
