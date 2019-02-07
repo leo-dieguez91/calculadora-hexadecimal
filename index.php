@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Calculadora Hexadecimal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw="crossorigin="anonymous"></script>
     <style media="screen">
       .container{
         position: absolute;

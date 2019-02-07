@@ -1,4 +1,8 @@
 <?php
+$factor1= '';
+$factor2= '';
+$operador= '';
+$resultado='';
 if (isset($_POST['calcular'])) {
   $seleccionado="";
   $factor1= $_POST['factor_1'];
@@ -56,18 +60,41 @@ if (isset($_POST['limpiar'])) {
   }
 
   function hexadecimal($r){
-    if ($r >16) {
+    if ($r >= 16) {
+      $a=0;
       while ($r > 16) {
         $a++;
         $r=($r - 16);
       }
-      $r=$r+($a*10);
+      $r=hexacalcu($r, $a);
       return $r;
-    }elseif ($r >9 && $r < 17) {
+    }elseif ($r >9 && $r < 16) {
       return $r=strtoupper(dechex($r));
     }else {
       return $r;
     }
   }
+function hexacalcu($r, $a){
+  if ($r>9 && $r<16) {
+    $h=dechex($r);
+    if ($a == 0) {
+      $a="";
+    }
+    return $r=$a.$h;
+  }elseif ($r == 16) {
+    $r=0;
+    return$r=$r+($a*10);
+  }elseif ($a>9 && $a<16) {
+    $a2=dechex($a);
+    return $r=$a2.$r;
+  }elseif (($r>9 && $r<16)&&($a>9 && $a<16)) {
+    $h=dechex($r);
+    $a2=dechex($a);
+    return $r=$a2.$h;
+  }else{
+   return $r=$r+($a*10);
+  }
+}
+
 
  ?>
